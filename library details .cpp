@@ -1,10 +1,10 @@
-include <iostream>
+#include <iostream>
 using namespace std;
 
 int main() {
     
     int bookID, dueDate, returnDate;
-    int daysOverdue, fineRate, fineAmount;
+    int daysOverdue, fineAmount;
 
 
     cout << "Enter Book ID: ";
@@ -19,17 +19,13 @@ int main() {
 
 
     if (daysOverdue <= 0) {
-        fineRate = 0;
         fineAmount = 0;
     } else if (daysOverdue <= 7) {
-        fineRate = 20;
-        fineAmount = daysOverdue * fineRate;
+        fineAmount = daysOverdue * 20;
     } else if (daysOverdue <= 14) {
-        fineRate = 50;
-        fineAmount = daysOverdue * fineRate;
+        fineAmount = (7 * 20) + ((daysOverdue - 7) * 50);
     } else {
-        fineRate = 100;
-        fineAmount = daysOverdue * fineRate;
+        fineAmount = (7 * 20) + (7 * 50) + ((daysOverdue - 14) * 100);
     }
 
     
@@ -38,7 +34,6 @@ int main() {
     cout << "Due Date: " << dueDate << endl;
     cout << "Return Date: " << returnDate << endl;
     cout << "Days Overdue: " << daysOverdue << endl;
-    cout << "Fine Rate (Ksh per day): " << fineRate << endl;
     cout << "Total Fine Amount (Ksh): " << fineAmount << endl;
 
     return 0;
