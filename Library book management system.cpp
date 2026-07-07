@@ -1,6 +1,6 @@
 /* Library Book Management System using classes and objects
  *   Nimrod Kamunyi
- *   BCS-03-0091/2025
+ *   BCS-05-0012/2025
  */
 #include <iostream>
 #include <string>
