@@ -1,0 +1,57 @@
+/*  Library Management System
+ *   Nimrod Kamunyi
+ *   BCS-05-0012/2025
+ */
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class Person {
+  protected:
+    string name;
+
+  public:
+    void setName(string name__) { name = name__; }
+
+    string getName() { return name; }
+};
+
+class LibraryMember : public Person {
+    int memberID, booksBorrowed;
+
+  public:
+    LibraryMember(string name, int memberID__, int booksBorrowed__)
+    {
+        setName(name);
+        memberID      = memberID__;
+        booksBorrowed = booksBorrowed__;
+    }
+
+    int getMemberID() { return memberID; }
+
+    int getBooksBorrowed() { return booksBorrowed; }
+};
+
+class PremiumMember : public LibraryMember {
+    double membershipFee;
+
+  public:
+    PremiumMember(string name, int memberID__, int booksBorrowed__, double membershipFee__)
+        : LibraryMember(name, memberID__, booksBorrowed__)
+    {
+        membershipFee = membershipFee__;
+    }
+
+    double getMembershipFee() { return membershipFee; }
+};
+
+int main()
+{
+    PremiumMember pm("Juan", 69, 3, 7800.0);
+    cout << pm.getMembershipFee() << "\n";
+    cout << pm.getMemberID() << "\n";
+    cout << pm.getName() << "\n";
+    cout << pm.getBooksBorrowed() << "\n";
+}
